@@ -1,7 +1,8 @@
 use hex::ToHex;
 use integritee_node_runtime::{
 	AccountId, AuraConfig, Balance, BalancesConfig, GenesisConfig, GrandpaConfig, Multisig,
-	Signature, SudoConfig, SystemConfig, TeerexConfig, TreasuryPalletId, TEER, WASM_BINARY,
+	NftsConfig, Signature, SudoConfig, SystemConfig, TeerexConfig, TreasuryPalletId, TEER,
+	WASM_BINARY,
 };
 use sc_service::ChainType;
 use sp_consensus_aura::sr25519::AuthorityId as AuraId;
@@ -377,6 +378,11 @@ fn genesis_config(
 		claims: Default::default(),
 		treasury: Default::default(),
 		vesting: Default::default(),
+		nfts: NftsConfig {
+			nfts: Default::default(),
+			series: Default::default(),
+			nft_mint_fee: 100000000000,
+		},
 	}
 }
 

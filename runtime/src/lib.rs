@@ -618,7 +618,7 @@ construct_runtime!(
 		Teeracle: pallet_teeracle::{Pallet, Call, Storage, Event<T>} = 52,
 
 		// Ternoa
-		TernoaNFTs: ternoa_nfts::{Pallet, Call, Storage, Event<T>, Config<T>},
+		Nfts: ternoa_nfts::{Pallet, Call, Storage, Event<T>, Config<T>},
 	}
 );
 
