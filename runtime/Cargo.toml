@@ -59,6 +59,9 @@ frame-benchmarking = { version = "4.0.0-dev", default-features = false, optional
 frame-system-benchmarking = { version = "4.0.0-dev", default-features = false,  optional = true, git = "https://github.com/paritytech/substrate.git", branch = "master" }
 hex-literal = { version = "0.3.1", optional = true }
 
+# Ternoa pallets and commons
+ternoa-nfts = { default-features = false, path = "../pallets/nfts" }
+
 [build-dependencies]
 substrate-wasm-builder = {version = "5.0.0-dev", git = "https://github.com/paritytech/substrate.git", branch = "master" }
 
@@ -101,6 +104,7 @@ std = [
 	"pallet-proxy/std",
 	"pallet-utility/std",
 	"pallet-teeracle/std",
+	"ternoa-nfts/std",
 ]
 runtime-benchmarks = [
 	"frame-benchmarking",

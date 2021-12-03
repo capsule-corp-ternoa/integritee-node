@@ -5,6 +5,7 @@ panic = 'unwind'
 members = [
     'node',
     'runtime',
+    'pallets/*',
 ]
 
 #[patch."https://github.com/integritee-network/pallets.git"]

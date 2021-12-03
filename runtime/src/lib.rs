@@ -64,6 +64,7 @@ use scale_info::TypeInfo;
 #[cfg(any(feature = "std", test))]
 pub use sp_runtime::BuildStorage;
 pub use sp_runtime::{Perbill, Permill};
+pub use ternoa_nfts;
 
 mod weights;
 
@@ -568,6 +569,20 @@ impl pallet_utility::Config for Runtime {
 	type WeightInfo = weights::pallet_utility::WeightInfo<Runtime>;
 }
 
+parameter_types! {
+	pub const MaxStringLength: u16 = 1000;
+	pub const MinStringLength: u16 = 1;
+}
+
+impl ternoa_nfts::Config for Runtime {
+	type Event = Event;
+	type WeightInfo = ();
+	type Currency = Balances;
+	type FeesCollector = ();
+	type MaxStringLength = MaxStringLength;
+	type MinStringLength = MinStringLength;
+}
+
 // Create the runtime by composing the FRAME pallets that were previously configured.
 construct_runtime!(
 	pub enum Runtime where
@@ -601,6 +616,9 @@ construct_runtime!(
 		Teerex: pallet_teerex::{Pallet, Call, Config, Storage, Event<T>} = 50,
 		Claims: pallet_claims::{Pallet, Call, Storage, Config<T>, Event<T>, ValidateUnsigned} = 51,
 		Teeracle: pallet_teeracle::{Pallet, Call, Storage, Event<T>} = 52,
+
+		// Ternoa
+		TernoaNFTs: ternoa_nfts::{Pallet, Call, Storage, Event<T>, Config<T>},
 	}
 );
 
