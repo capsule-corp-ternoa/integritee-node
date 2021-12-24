@@ -8,14 +8,19 @@ version = "0.3.0"
 targets = ["x86_64-unknown-linux-gnu"]
 
 [dependencies]
-codec = { package = "parity-scale-codec", default-features = false, features = ["derive"], version = "2.3.1" }
+codec = { package = "parity-scale-codec", default-features = false, features = [
+    "derive",
+], version = "2.3.1" }
+scale-info = { version = "1.0", default-features = false, features = [
+    "derive",
+] }
 frame-benchmarking = { git = "https://github.com/paritytech/substrate.git", default-features = false, optional = true, version = "4.0.0-dev", branch = "master" }
 frame-support = { git = "https://github.com/paritytech/substrate.git", default-features = false, version = "4.0.0-dev", branch = "master" }
 frame-system = { git = "https://github.com/paritytech/substrate.git", default-features = false, version = "4.0.0-dev", branch = "master" }
 serde = { optional = true, version = "1.0.101" }
 sp-runtime = { git = "https://github.com/paritytech/substrate.git", default-features = false, version = "4.0.0-dev", branch = "master" }
 sp-std = { git = "https://github.com/paritytech/substrate.git", default-features = false, version = "4.0.0-dev", branch = "master" }
-log = { default-features = false, version = "0.4.14"}
+log = { default-features = false, version = "0.4.14" }
 
 [dev-dependencies]
 pallet-balances = { git = "https://github.com/paritytech/substrate.git", version = "4.0.0-dev", default-features = false, branch = "master" }
@@ -33,6 +38,4 @@ std = [
     "sp-runtime/std",
     "sp-std/std",
 ]
-runtime-benchmarks = [
-    "frame-benchmarking",
-]
+runtime-benchmarks = ["frame-benchmarking"]

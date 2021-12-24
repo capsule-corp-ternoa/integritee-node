@@ -22,6 +22,7 @@ pub mod ternoa {
 pub mod nfts {
 	use super::ternoa;
 
+	use scale_info::TypeInfo;
 	#[cfg(feature = "std")]
 	use serde::{Deserialize, Serialize};
 
@@ -36,7 +37,7 @@ pub mod nfts {
 	pub type NFTSeriesId = Vec<u8>;
 
 	/// Data related to an NFT, such as who is its owner.
-	#[derive(Encode, Decode, Clone, PartialEq, Eq, Default, RuntimeDebug)]
+	#[derive(Encode, Decode, Clone, PartialEq, Eq, Default, RuntimeDebug, TypeInfo)]
 	#[cfg_attr(feature = "std", derive(Serialize, Deserialize))]
 	pub struct NFTData<AccountId> {
 		// NFT owner
@@ -61,7 +62,7 @@ pub mod nfts {
 	}
 
 	/// Data related to an NFT Series.
-	#[derive(Encode, Decode, Clone, PartialEq, Eq, Default, RuntimeDebug)]
+	#[derive(Encode, Decode, Clone, PartialEq, Eq, Default, RuntimeDebug, TypeInfo)]
 	#[cfg_attr(feature = "std", derive(Serialize, Deserialize))]
 	pub struct NFTSeriesDetails<AccountId> {
 		pub owner: AccountId, // Series Owner
@@ -298,7 +299,6 @@ pub mod pallet {
 
 	#[pallet::event]
 	#[pallet::generate_deposit(pub(super) fn deposit_event)]
-	#[pallet::metadata(T::AccountId = "AccountId", NFTId = "NFTId", ternoa::String = "String")]
 	pub enum Event<T: Config> {
 		/// A new NFT was created. \[nft id, owner, series id, ipfs reference\]
 		Created(NFTId, T::AccountId, NFTSeriesId, ternoa::String),
