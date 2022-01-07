@@ -24,7 +24,7 @@ log = { default-features = false, version = "0.4.14" }
 
 [dev-dependencies]
 pallet-balances = { git = "https://github.com/paritytech/substrate.git", version = "4.0.0-dev", default-features = false, branch = "master" }
-sp-core = { git = "https://github.com/paritytech/substrate.git", default-features = false, version = "4.0.0-dev", branch = "master" }
+sp-core = { git = "https://github.com/paritytech/substrate.git", default-features = false, version = "4.1.0-dev", branch = "master" }
 sp-io = { git = "https://github.com/paritytech/substrate.git", default-features = false, version = "4.0.0-dev", branch = "master" }
 
 [features]
